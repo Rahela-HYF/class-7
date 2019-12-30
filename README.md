@@ -1,6 +1,6 @@
-# Class NUMBER
+# Class 7
 
-Hello Class NUMBER!
+Hello Class 7! You're more than just a number to us <3
 
 This repository is yours to keep track of what you've covered so far, to get to know each other, to post helpful resources, to practice collaborating on github, ... to do everything!  Slack is great for chatting but links and good explanations can easily get lost in message history.  Think of this repository as your class' forum and shared reference.
 
