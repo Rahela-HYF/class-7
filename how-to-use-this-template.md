@@ -1,9 +1,13 @@
+Do you want to start a repo like this? not so hard! Head over to [the template repository at HackYourFutureBelgium](https://github.com/HackYourFutureBelgium/class-repo-template/) and follow these instructions:
+
 1. set up a new repo for your class
-    1. start an empty repository in your organization
-    1. clone this repo
-    1. replace all instances of `class-repo-template` with the name of your new class
-    1. set your new repo as a remote
-    1. push
+    * either by cloning
+        1. start an empty repository in your organization
+        1. clone this repo
+        1. replace all instances of `class-repo-template` with the name of your new class
+        1. set your new repo as a remote
+        1. push
+    * or [generate from template](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template)
 1. set up the class overview app
     1. turn on github pages
     1. update the `repoName` and `userName` in `./app/data/index.json`
