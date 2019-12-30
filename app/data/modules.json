@@ -1,0 +1,32 @@
+[
+  {
+    "name": "working-with-code",
+    "status": "in progress",
+    "board": 1
+  },
+  {
+    "name": "incremental-development",
+    "status": "to do",
+    "board": 2
+  },
+  {
+    "name": "separation-of-concerns",
+    "status": "to do",
+    "board": 3
+  },
+  {
+    "name": "state",
+    "status": "to do",
+    "board": 4
+  },
+  {
+    "name": "encapsulation",
+    "status": "to do",
+    "board": 5
+  },
+  {
+    "name": "public-apis",
+    "status": "to do",
+    "board": 6
+  }
+]

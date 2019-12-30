@@ -1,0 +1,35 @@
+{
+  "description": "top-level data model for a class",
+  "type": "object",
+  "properties": {
+    "repoName": {
+      "type": "string",
+      "description": "the name of the repository hosting this class repo, dynamically interpreted and added"
+    },
+    "userName": {
+      "type": "string",
+      "description": "the name of the user/organization hosting this class repo, dynamically interpreted and added"
+    },
+    "currentModule": {
+      "type": "string",
+      "description": "the name property of the module currently rendered, if empty all modules will be rendered.  This is set by user actions or url queries at load"
+    },
+    "currentStudent": {
+      "type": "string",
+      "description": "the name property of student module currently rendered, if empty all students will be rendered.  This is set by user actions or url queries at load"
+    },
+    "root": {
+      "type": [
+        "Element",
+        "string"
+      ],
+      "description": "the root for this app. if string, will find by id. if Element, will operate directly"
+    },
+    "students": {
+      "type": "$ref/students.json"
+    },
+    "modules": {
+      "type": "$ref/modules.json"
+    }
+  }
+}

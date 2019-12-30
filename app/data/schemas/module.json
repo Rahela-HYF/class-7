@@ -1,0 +1,46 @@
+{
+  "description": "the exercises/projects/assessments, status, and project board number for each module",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "the repo-name for this module, hosted on the organization. Students are not expected to have a repo of this name"
+    },
+    "status": {
+      "type": "string",
+      "description": "any string.  things like 'to do', or 'in progress' are helpful"
+    },
+    "board": {
+      "type": "number",
+      "description": "indicates the number of this module's project board in the class wiki. used to generate links to project boards"
+    },
+    "projects": {
+      "type": "array",
+      "description": "all projects a student is expected to have for this module",
+      "items": {
+        "type": "$ref/assignment.json",
+        "description": "an overview of what the dashboard for look for in each project"
+      }
+    },
+    "exercises": {
+      "type": "array",
+      "description": "all exercises a student is expected to have for this module",
+      "items": {
+        "type": "$ref/assignment.json",
+        "description": "an overview of what the dashboard for look for in each exercise"
+      }
+    },
+    "assessments": {
+      "type": "array",
+      "description": "all assessments a student is expected to have for this module",
+      "items": {
+        "type": "$ref/assignment.json",
+        "description": "an overview of what the dashboard for look for in each assessment"
+      }
+    },
+    "repo": {
+      "type": "string",
+      "description": "optional.  if present, this is used to generate link to repo. otherwise name is used"
+    }
+  }
+}

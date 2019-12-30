@@ -1,0 +1,44 @@
+{
+  "description": "enough information about each assignment to create an overview and generate code-review/report links",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "what the assignment is called.  this name will by default be used as the repo name for generating links, unless a repo name is specifically defined (see the 'repo' field below)"
+    },
+    "live": {
+      "type": [
+        "boolean",
+        "string"
+      ],
+      "description": "whether or not to expect a live site accompanying this assignment. if the value is true, a link to github pages will be auto-generated.  if the value is a string that string will be treated as the url for the live project.  Strings will have all instances of '<user-name>' replaced with the student's github user name"
+    },
+    "source": {
+      "type": "string",
+      "description": "optional. a URL where to find the source code, if not provided a github link will be generated from the repo/name and student.userName"
+    },
+    "directories": {
+      "type": "array",
+      "description": "a list of sub-folders to be completed. there will be no api check, if the repo exists buttons to the source code will be rendered. if the repo is live, live links will also be rendered",
+      "items": {
+        "type": "string",
+        "description": "relative paths to the directory/file expected"
+      }
+    },
+    "reports": {
+      "type": "array",
+      "description": "a list of any and all report files a student is expected to build and push for this assignment.  reports will be pulled from github pages as an API",
+      "items": {
+        "type": "string",
+        "description": "relative paths to report files from the top of the repo. should indicate file & extension"
+      }
+    },
+    "repo": {
+      "type": [
+        "boolean",
+        "string"
+      ],
+      "description": "optional.  if it's a string, will be used to generate links to the repository if you want to name the project something different than the repo name. if it's false, no repo link will be rendered.  if it's true, name will be used to render repo link. repos 'dont exist' without a README & gh-pages turned on"
+    }
+  }
+}

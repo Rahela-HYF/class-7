@@ -1,0 +1,8 @@
+{
+  "description": "an array of all student objects for a given class",
+  "type": "array",
+  "items": {
+    "type": "$ref/student.json",
+    "description": "the students in this class"
+  }
+}

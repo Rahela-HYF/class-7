@@ -1,0 +1,14 @@
+{
+  "description": "enough info to do a public & static progress dashboard.  no sensitive or private data.  used to generate links and fetch their profile picture",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "their full name"
+    },
+    "userName": {
+      "type": "string",
+      "description": "their github handle"
+    }
+  }
+}

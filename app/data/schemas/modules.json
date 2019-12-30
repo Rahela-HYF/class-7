@@ -1,0 +1,8 @@
+{
+  "description": "an array of all module objects for a given class",
+  "type": "array",
+  "items": {
+    "type": "$ref/module.json",
+    "description": "the exercises/projects/assessments, status, and project board number for each module"
+  }
+}
