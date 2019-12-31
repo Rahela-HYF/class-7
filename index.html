@@ -7,15 +7,11 @@
   <title>Class 7</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-  <script src='app/init.js'></script>
-  <script src='app/views/module-thumb.js'></script>
-  <script src='app/views/module.js'></script>
-  <script src='app/views/student-thumb.js'></script>
-  <script src='app/views/student.js'></script>
-  <script src='app/views/display-many.js'></script>
-  <script src='app/views/home.js'></script>
-  <script src='app/views/assignment.js'></script>
-  <script src='app/views/assignments.js'></script>
+  <script type='module'>
+    import app from "https://hackyourfuture.be/class-overview-app/index.js"
+    window.classOverview = app;
+  </script>
+  <script src='./init.js'></script>
 
 
   <script>

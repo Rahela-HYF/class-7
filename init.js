@@ -1,6 +1,6 @@
 const init = async () => {
 
-  window.state = await fetch('./app/data/index.json')
+  window.state = await fetch('./class-data/index.json')
     .then(resp => resp.json())
     .catch(err => {
       console.log(err);
@@ -8,7 +8,7 @@ const init = async () => {
     });
   if (window.state instanceof Error) return;
 
-  state.students = await fetch('./app/data/students.json')
+  state.students = await fetch('./class-data/students.json')
     .then(resp => resp.json())
     .catch(err => {
       console.log(err);
@@ -16,7 +16,7 @@ const init = async () => {
     });
   if (window.state.students instanceof Error) return;
 
-  state.modules = await fetch('./app/data/modules.json')
+  state.modules = await fetch('./class-data/modules.json')
     .then(resp => resp.json())
     .catch(err => {
       console.log(err);
@@ -27,10 +27,11 @@ const init = async () => {
 
   const pendingAssignments = state.modules.map(module => {
     if (module.status !== 'to do') {
-      const url = `https://${state.userName}.github.io/${module.name}/assignments.json`
+      const url = 'https://hackyourfuture.be/' + module.name + '/assignments.json'
+      // const url = `https://${state.userName}.github.io/${module.name}/assignments.json`
       // https://stackoverflow.com/questions/43262121/trying-to-use-fetch-and-pass-in-mode-no-cors
-      // return fetch(url)
-      return fetch('https://cors-anywhere.herokuapp.com/' + url)
+      return fetch(url)
+        // return fetch('https://cors-anywhere.herokuapp.com/' + url)
         .then(res => res.json())
         .then(assignments => Object.assign(module, assignments))
         .catch(err => {
@@ -61,24 +62,11 @@ const init = async () => {
       .find(module => module.repo === moduleParam);
 
 
-  console.log(state);
+  console.log('initial state:', state);
 
   state.root = document.getElementById('root');
-  const root = state.root;
 
-  if (state.currentStudent && state.currentModule) {
-    root.appendChild(await studentThumb(state.currentStudent));
-    root.appendChild(document.createElement('hr'));
-    root.appendChild(await moduleThumb(state.currentModule));
-    root.appendChild(await assignments(state.currentModule, state.currentStudent));
-  } else if (state.currentStudent) {
-    renderStudent(state.currentStudent, state);
-  } else if (state.currentModule) {
-    renderModule(state.currentModule, state);
-  } else {
-    root.appendChild(await home(state));
-  }
-
+  classOverview(state);
 
   document.getElementById('class-name').innerHTML = state.repoName;
 
@@ -94,11 +82,15 @@ const init = async () => {
 
   document.getElementById('go-home-top').onclick = async () => {
     document.getElementById('root').innerHTML = '';
-    document.getElementById('root').appendChild(await home(state));
+    state.currentModule = null;
+    state.currentStudent = null;
+    await classOverview(state);
   }
 
   document.getElementById('go-home-bottom').onclick = async () => {
     document.getElementById('root').innerHTML = '';
-    document.getElementById('root').appendChild(await home(state));
+    state.currentModule = null;
+    state.currentStudent = null;
+    await classOverview(state);
   }
 };
